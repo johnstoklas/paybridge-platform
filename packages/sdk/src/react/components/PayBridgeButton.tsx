@@ -1,8 +1,5 @@
+import type { PayBridgeButtonProps } from "../types"
 
-export const PayBridgeButton = () => {
-  return (
-    <button>
-      Pay with PayBridge
-    </button>
-  );
-};
+export function PayBridgeButton({
+  onPress,
+  disabled =

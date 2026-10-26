@@ -1,3 +1,1 @@
-export function fn() {
-  return 'Hello, tsdown!'
-}
+export { createPayBridgeClient, DEFAULT_BASE_URL } 

@@ -22,20 +22,23 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown",
-    "dev": "tsdown --watch",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "release": "bumpp",
-    "prepublishOnly": "pnpm run build"
+    "build:css": "tailwindcss -i ./src/react/styles/paybridge.css -o ./src/react/styles/paybridge-compiled.css && node ./scripts/embed-css.mjs",
+    "dev:css": "tailwindcss -i ./src/react/styles/paybridge.css -o ./src/react/styles/paybridge-compiled.css --watch",
+    "dev:embed": "chokidar \"src/react/styles/paybridge-compiled.css\" -c \"node ./scripts/embed-css.mjs\"",
+    "dev:styles": "concurrently \"npm run dev:css\" \"npm run dev:embed\"",
+    "build": "npm run build:css && tsdown"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "bumpp": "^12.3.0",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^10.0.6",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.3",
     "tsdown": "^0.23.1",
     "typescript": "^7.0.2",
     "vitest": "^5.0.5"

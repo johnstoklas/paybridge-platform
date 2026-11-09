@@ -1,46 +1,12 @@
-.pb-button {
-  font: inherit;
-  cursor: pointer;
-  border: 1px solid var(--border, #d1d5db);
-  border-radius: 6px;
-  padding: 10px 16px;
-  background: var(--text-h, #111827);
-  color: var(--bg, #fff);
-  margin: 4px;
-}
+@layer theme, base, components, utilities;
 
-.pb-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
-}
+@import "tailwindcss/theme.css" layer(theme) prefix(pb);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(pb);
 
-.pb-checkout,
-.pb-status,
-.pb-error,
-.pb-confirmation {
-  border: 1px solid var(--border, #d1d5db);
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin: 12px auto;
-  max-width: 420px;
-  text-align: left;
-}
+@source "../components";
 
-.pb-checkout p,
-.pb-status p,
-.pb-error p,
-.pb-confirmation p {
-  margin: 4px 0;
-}
-
-.pb-error {
-  border-color: #b91c1c;
-}
-
-.pb-confirmation {
-  border-color: #047857;
-}
-
-.pb-status[data-status="refunded"] {
-  border-color: #b45309;
+@theme {
+  --color-paybridge: #4f35d5;
+  --color-paybridge-hover: #3925ad;
 }
